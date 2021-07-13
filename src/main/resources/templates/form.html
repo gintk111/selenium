@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <form method="POST" action="/create" id="form-insert" th:object="${form}">
+            <div class="form-group field-contactform-contact_type required">
+                <label class="contact-font-size-bold">Requirement Brief</label><span class="mark-contact-bolt">*</span>
+                <div>
+                    <div id="contactform-contact_type" class="row radio-contact-border pt-4" role="radiogroup"
+                         aria-required="true">
+                        <div class="col-6 col-md-4 radio-contact"><input type="radio" style="border-radius:50%"
+                                                                          value="1"
+                                                                         tabindex="3" th:field="*{contact_type}"><span style="vertical-align: middle;">Document Download</span>
+                        </div>
+                        <div class="col-6 col-md-4 radio-contact"><input type="radio" style="border-radius:50%"
+                                                                          value="2"
+                                                                         tabindex="3" th:field="*{contact_type}"><span style="vertical-align: middle;">Estimation/ Consulting</span>
+                        </div>
+                        <div class="col-6 col-md-4 radio-contact"><input type="radio" style="border-radius:50%"
+                                                                          value="3"
+                                                                         tabindex="3" th:field="*{contact_type}"><span style="vertical-align: middle;">Other</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="help-block help-block-error"></p>
+            </div>
+            <div class="row pt-4 pb-2">
+                <div class="col-12 contact-font-size-bold">Full Name<span class="mark-contact-bolt">*</span></div>
+                <div class="col-12">
+                    <div class="form-group field-contactform-name required">
+
+                        <input type="text" id="contactform-name" class="form-control border-style" th:field="*{name}"
+                               autocomplete="off" placeholder="" aria-required="true">
+
+                        <p class="help-block help-block-error"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="row py-2">
+                <div class="col-12 contact-font-size-bold">Company<span class="mark-contact-bolt">*</span></div>
+                <div class="col-12">
+                    <div class="form-group field-contactform-company required">
+
+                        <input type="text" id="contactform-company" class="form-control border-style"
+                               autocomplete="off" placeholder="" aria-required="true" th:field="*{company}">
+
+                        <p class="help-block help-block-error"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="row py-2">
+                <div class="col-12 contact-font-size-bold">Work Phone</div>
+                <div class="col-12">
+                    <div class="form-group field-contactform-phone">
+
+                        <input type="text" id="contactform-phone" class="form-control border-style"
+                               autocomplete="off" placeholder="" th:field="*{phone}">
+
+                        <p class="help-block help-block-error"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="row py-2">
+                <div class="col-12 contact-font-size-bold">Email Address<span class="mark-contact-bolt">*</span></div>
+                <div class="col-12">
+                    <div class="form-group field-contactform-email required">
+
+                        <input type="text" id="contactform-email" class="form-control border-style"
+                               autocomplete="off" placeholder="" aria-required="true" th:field="*{mail}">
+
+                        <p class="help-block help-block-error"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group field-contactform-service_care_ai required">
+                <label class="contact-font-size-bold">I am interested in</label><span class="mark-contact-bolt">*</span>
+                <div>
+                    <div id="contactform-service_care_ai" class="row radio-contact-border pt-4" aria-required="true">
+                        <div class="col-6 radio-contact mb-1"><input type="checkbox"
+                                                                     tabindex="3" th:field="*{service_care_ai}" value="web" ><span
+                                style="vertical-align: middle" ;="">System Development</span></div>
+                        <div class="col-6 radio-contact mb-1"><input type="checkbox"
+                                                                     tabindex="3" th:field="*{service_care_ai}" value="ai"><span
+                                style="vertical-align: middle" ;="">Artificial Intelligence Development</span></div>
+                        <div class="col-6 radio-contact mb-1"><input type="checkbox"
+                                                                     tabindex="3" th:field="*{service_care_ai}" value="app" ><span
+                                style="vertical-align: middle" ;="">Application Development</span></div>
+                        <div class="col-6 radio-contact mb-1"><input type="checkbox"
+                                                                     tabindex="3" th:field="*{service_care_ai}" value="blockchain" ><span
+                                style="vertical-align: middle" ;="">Blockchain Consulting and Development</span></div>
+                        <div class="col-6 radio-contact mb-1"><input type="checkbox"
+                                                                     tabindex="3" th:field="*{service_care_ai}" value="other" ><span
+                                style="vertical-align: middle" ;="">Other</span></div>
+                    </div>
+                </div>
+                <p class="help-block help-block-error"></p>
+            </div>
+            <div class="form-group field-contactform-contact_type required">
+                <label class="contact-font-size-bold">Project Description</label><span class="mark-contact-bolt">*</span>
+                <div>
+                    <div class="form-group field-contactform-description required">
+
+                <textarea id="contactform-description" class="form-control"  rows="6"
+                          aria-required="true" th:field="*{description}"></textarea>
+
+                        <p class="help-block help-block-error"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group field-contactform-agree required">
+
+                <input type="hidden" name="ContactForm[agree]" value="">
+                <div id="contactform-agree" class="row radio-contact-border pt-4" aria-required="true">
+                    <div id="agree-contact" class="col-12 radio-contact"><input type="checkbox" name="ContactForm[agree][]"
+                                                                                value="1" tabindex="3"><span
+                            style="vertical-align: middle" ;="">By submitting this form I give my consent for VNEXT HOLDINGS to collect and process my personal details according to its Privacy Policy.</span>
+                    </div>
+                </div>
+
+                <p class="help-block help-block-error"></p>
+            </div>
+            <div class="row mb-5">
+                <div class="col-12">
+                    <div class="d-flex flex-column align-items-center justify-content-center aos-init aos-animate"
+                         data-aos="fade-up">
+                        <button class="skewed-button" id="submitForm"
+                                style="border: 1px solid #000000;text-transform: uppercase; padding: 10px 40px; margin: 1em auto!important; ">
+                            <div class="delete-italic ">
+                                Submit Form
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
